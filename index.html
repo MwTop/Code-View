@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<title>示例</title>
+	<link rel="stylesheet" type="text/css" href="css/my.css">
+   <script type="text/javascript">
+     // window.onload = function () {
+      var today=new Date();
+      var day;var date;
+      if(today.getDay()==0) day="星期日";
+      if(today.getDay()==1) day="星期一";
+      if(today.getDay()==2) day="星期二"
+      if(today.getDay()==3) day="星期三"
+      if(today.getDay()==4) day="星期四"
+      if(today.getDay()==5) day="星期五"
+      if(today.getDay()==6) day="星期六"
+      date1=today.getFullYear()+"年"+(today.getMonth()+1)+"月"+(today.getDate())+"日";
+      date2=day;
+     // document.write(date1);
+     // document.write(date2);
+      document.write("<span id='clock'>"+date1+date2+"<span id='Clock'></span></span>");
+      var now,hours,minutes,seconds,timeValue;
+      function showtime(){
+        now=new Date();
+        hours=now.getHours();
+        minutes=now.getMinutes();
+        seconds=now.getSeconds();
+        timeValue=(hours>=12)?" ":" ";
+        timeValue+=hours+":";
+        timeValue+=((minutes<10)?"0":"")+minutes+":";
+        timeValue+=((seconds<10)?"0":"")+seconds+" ";
+        Clock.innerHTML=timeValue;
+      
+        setTimeout("showtime()",100);
+        }
+   
+         showtime();// 日期实现
+
+
+            //图片焦点轮播实现
+            window.onload = function () {
+            var container = document.getElementById('right2');
+            var list = document.getElementById('list');
+            var buttons = document.getElementById('buttons').getElementsByTagName('span');
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var index = 1;
+            var len = 5;
+            var animated = false;
+            var interval = 3000;
+            var timer;
+
+
+            function animate (offset) {
+                if (offset == 0) {
+                    return;
+                }
+                animated = true;
+                var time = 300;
+                var inteval = 5;
+                var speed = offset/(time/inteval);
+                var left = parseInt(list.style.left) + offset;
+
+                var go = function (){
+                    if ( (speed > 0 && parseInt(list.style.left) < left) ||
+                            (speed < 0 && parseInt(list.style.left) > left))
+                       {
+                        list.style.left = parseInt(list.style.left) + speed + 'px';
+                        setTimeout(go, inteval);
+                    }
+                    else {
+                        list.style.left = left + 'px';
+                        if(left>-200){
+                            list.style.left = -578 * len + 'px';
+                        }
+                        if(left<(-578 * len)) {
+                            list.style.left = '-578px';
+                        }
+                        animated = false;
+                    }
+                }
+                go();
+            }
+
+            function showButton() {
+                for (var i = 0; i < buttons.length ; i++) {
+                    if( buttons[i].className == 'on'){
+                        buttons[i].className = '';
+                        break;
+                    }
+                }
+                buttons[index - 1].className = 'on';
+            }
+
+            function play() {
+                timer = setTimeout(function () {
+                    next.onclick();
+                    play();
+                }, interval);
+            }
+            function stop() {
+                clearTimeout(timer);
+            }
+
+            next.onclick = function () {
+                if (animated) {
+                    return;
+                }
+                if (index == 5) {
+                    index = 1;
+                }
+                else {
+                    index += 1;
+                }
+                animate(-578);
+                showButton();
+            }
+            prev.onclick = function () {
+                if (animated) {
+                    return;
+                }
+                if (index == 1) {
+                    index = 5;
+                }
+                else {
+                    index -= 1;
+                }
+                animate(578);
+                showButton();
+            }
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function () {
+                    if (animated) {
+                        return;
+                    }
+                    if(this.className == 'on') {
+                        return;
+                    }
+                    var myIndex = parseInt(this.getAttribute('index'));
+                    var offset = -578 * (myIndex - index);
+
+                    animate(offset);
+                    index = myIndex;
+                    showButton();
+                }
+            }
+
+            container.onmouseover = stop;
+            container.onmouseout = play;
+
+            play();
+
+        }
+
+        // }
+  </script>  
+</head>
+<body bgcolor="#EFEFEF">
+   <div id="head">
+     <div class="logo"><img src="img/logo.jpg"></div>
+     <div class="mid"><a href="#">加油吧，少年！</a></div>
+     <div class="right"></div>
+     <div class="head-right">
+     	<a href="#">设为首页</a> |
+        <a href="#">加入收藏</a> |
+        <a href="#">网站地图</a> |<br>
+       
+     </div>
+   </div> 
+   <div class="nav">
+   	  <div class="nav-lan">
+        <ul>
+          <li><a href="index.html">网站首页</a></li>
+       	  <li><a href="first.html">会员服务</a></li>
+       	  <li><a href="#">行业动态</a></li>
+       	  <li><a href="second.html">公司新闻</a></li>
+       	  <li><a href="#">网上购物</a></li>
+       	  <li><a href="#">产品展示</a></li>
+       	  <li><a href="third.html">关于我们</a></li>
+       	  <li class="no_bg"><a href="#">ENGLISH</a></li>
+        </ul>
+     </div>
+   </div>
+   <div id="content-img"></div>
+   <div id="content">
+      <div class="content-left">
+         <div class="left1">
+           <p>产品搜索</p>
+           <input type="text" class="in">
+           <a href="http://www.baidu.com/" target="_blank"><input type="submit" value="搜索"></a>
+         </div>
+         <div class="left2">
+           <p>产品分类</p>
+           <div class="text">
+             <p><a href="#">分类1</a></p>
+           	 <p><a href="#">分类2</a></p>
+           </div>
+         </div>
+        <div class="left3">
+          <p>在线客服</p>
+          <div class="text">
+             <p><a href="#">客服1</a></p>
+           	 <p><a href="#">客服2</a></p>
+           </div>
+           <div class="cha"></div>
+           <div class="number">
+             <p>联系我们</p>
+              <div class="text">
+              <p>地 址：北京市海淀区未来大厦6层</p>
+              <p>邮 编：100191</p>   
+              <p>热线电话：010-62358888</p>
+              <p>传 真：010-88636666</p>
+              <p>邮 箱：lssp@lssp.com</p>
+              </div>
+           </div>
+        </div> 
+      </div>
+      <div class="content-right">
+        <div class="right1">
+          <p>公司简介</p>
+          <br>
+          <div class="introduce">
+              <div class="intro-left">
+				          <a href="#"><img width="98" height="84" src="img/s0.jpg"></a>
+				       </div>     
+        				<div class="intro-right">
+                    <dd>
+                    健康食品（北京）有限公司立志于有机事业的发展，坚持以人为本，走可持续发展的道路，从农田到餐桌，实行全过程监控体系，以优质的产品为更多的人提供健康的食品安...
+                    <a href="#">详细内容>></a>
+                      </dd>
+		            </div>
+    		  </div> 
+
+           <div id="right2">
+                 <div id="list" style="left: -578px;">   <!--显示的是第一张图left: -578px -->
+                    <img src="img/s0.jpg" alt="1"/>
+                    <img src="img/s1.jpg" alt="1"/>
+                    <img src="img/s2.jpg" alt="2"/>
+                    <img src="img/s3.jpg" alt="3"/>
+                    <img src="img/s4.jpg" alt="4"/>
+                    <img src="img/s0.jpg" alt="5"/>
+                    <img src="img/s1.jpg" alt="5"/>
+                 </div>
+                 <div id="buttons">
+                    <span index="1" class="on"></span>
+                    <span index="2"></span>
+                    <span index="3"></span>
+                    <span index="4"></span>
+                    <span index="5"></span>
+                 </div>
+                <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+                <a href="javascript:;" id="next" class="arrow">&gt;</a>
+          </div>
+
+              <div class="right3">
+                  <p><span class="one">公司动态</span>
+                  <span class="two"><a href="#">more >></a></span></p>
+                  <a href="#"><p><span class="one">关于奖励模范带头人的通知</span>
+                  <span class="two">2015-12-17</span></p></a>
+                  <a href="#"><p><span class="one">关于最近公司事务的通知</span>
+                  <span class="two">2015-12-17</span></p></a>
+                  <a href="#"><p><span class="one">关于休假的通知</span>
+                  <span class="two">2015-12-17</span></p></a>
+                  <a href="#"><p><span class="one">国家级教学名师傅钢善教授来公司作报告</span>
+                  <span class="two">2015-12-16</span></p></a>
+                   <a href="#"><p><span class="one">12月28日关于个人业务调整的有关会议的通知</span>
+                  <span class="two">2015-12-16</span></p></a>
+              </div>
+        </div>    
+      </div> 
+    </div>
+     <div id="footer">
+     <p><a href="#">关于我们</a> &nbsp;&nbsp;| <a href="#">广告我们</a>&nbsp;&nbsp;|  <a href="#">联系我们</a> &nbsp;&nbsp; |  <a href="#">法律声明</a>&nbsp;&nbsp; | <a href="#">合作渠道</a>&nbsp;&nbsp; | <a href="#">友情链接</a></p> 
+     <p>me@ 陕ICP备13001401号</p>
+  </div>
+   </div>        
+</body>
+</html>		

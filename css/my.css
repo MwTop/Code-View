@@ -1,0 +1,152 @@
+body,div,ul,li,p,hr{margin: 0;padding:0;}
+       a{text-decoration: none;color: black;font-size: 13px;}
+       a:hover{color: blue;}
+       #head{width: 1180px;height: 120px;background:#FFFFFF;
+             margin: 0px auto;}
+       .logo{width: 200px;
+       	     height: 100px; 
+             float:left;
+             margin-left: 100px;
+             margin-top: 5px;
+            }
+        .mid{width: 200px;
+       	     height: 100px;
+       	     float:left;
+       	     margin-left: 50px;
+             margin-top: 5px;
+             text-align: center;
+             line-height: 100px;
+       	     }
+       	.mid a{font-size: 25px;color: #028039; v-link:green;}
+       .logo img{width:100px;height: 100px;}
+       .head-right{float: right;
+       	           width: 200px;
+       	           height: 100px;
+       	           margin-top: 5px;
+       	           margin-right: 100px;}
+       .nav{width: 1000px;
+       	    height: 30px;
+       	   /* border: 1px solid #ccc;*/
+       	    /*background: #ccc;*/
+       	    margin: 0px auto;
+       	    }
+       .nav-lan{width: 800px;
+       	        height: 30px;
+       	        margin: 0px auto;}
+       .nav ul{list-style: none;}
+       .nav ul li{width: 100px;
+       	          height:30px;
+       	          float: left;
+       	          /*border: 1px solid #ccc;*/
+       	          text-align: center;
+       	          margin: auto 0px;
+       	           }
+       .nav ul li a{line-height: 30px;display: block;}
+       .nav ul li a:hover{display: block;
+                          background: #028039;
+                          color: gold;}
+        #content-img{width: 1180px;height: 300px;
+                     background:rgba(0,0,0,0) url(../img/tupian.jpg) no-repeat scroll 50% 0;
+                     border-top: 2px solid #028039;
+                     text-align: center;
+                     margin: 0px auto;
+                    } 
+        #content{width: 800px;
+                 height: 700px;
+                 margin: 10px auto;
+             } 
+        .content-left{width: 200px;
+                      height: 700px;
+                      /*border:1px solid #ccc;*/
+                      float: left;}
+        .left1{width: 200px;
+                      height: 70px;
+                      border-bottom: 1px solid #ccc;
+                      background: white;
+                     }
+        .left1 p,.left2 p,.left3 p,.number p,.right1 p,.right3 p,.right4 p{height: 30px;
+        	background: #D8E8E2;
+        	line-height: 30px;
+            font-size: 12px;
+            } 
+         .in{width: 100px;margin: 5px;
+             margin-left: 20px;} 
+         .left2{width: 200px;
+                      height: 100px;
+                      border-bottom: 1px solid #ccc;
+                      background: white;
+                      margin-top: 20px;
+                     }
+          .left3{width: 200px;
+                      height: 200px;
+                      border-bottom: 1px solid #ccc;
+                      background: white;
+                      margin-top: 20px;
+                     }
+         .text{width: 200px;height: 60px;border-bottom:1px }
+         .text p{height: 30px;background: white;}
+         .cha{width: 200px;height: 160px;background: url(../img/工作时间.png);}
+         .number{width: 200px; height: 200px;margin-top: 20px;background: white;}
+         .content-right{width: 578px;
+                      height: 700px;
+                      /*border:1px solid #ccc;*/ 
+                      float: left;
+                      margin-left: 20px;} 
+         .right1{width: 578px;
+                 height: 160px;
+                border:1px solid #ccc;} 
+          .introduce{width: 575px;height: 100px;} 
+          .intro-left{width: 100px;height: 100px;background: url(../img/photo_1.jpg) no-repeat;
+                     float: left;}
+          .intro-right{width: 400px;height: 100px;float: left;margin-left: 10px;} 
+          .intro-right a:hover{color: red;}
+          #right2{width: 578px;
+                 height: 300px;
+                   border: 3px solid #333; overflow: hidden; 
+                   position: relative;margin: 0 auto;
+                   margin-top: 30px;
+                  } 
+             #list { width: 4200px; height: 400px; position: absolute; z-index: 1;}
+            #list img { float: left;width: 578px;height: 300px;}
+            #buttons { position: absolute; height: 10px; width: 100px; z-index: 2; bottom: 20px; left: 250px;}
+            #buttons span { cursor: pointer; float: left; border: 1px solid #fff; width: 10px; height: 10px; border-radius: 50%; background: #333; margin-right: 5px;}
+            #buttons .on {  background: orangered;}
+            .arrow { cursor: pointer; display: none; line-height: 39px; text-align: center; font-size: 36px; font-weight: bold; 
+                width: 40px; height: 40px;  position: absolute; z-index: 2; top: 140px; background-color: RGBA(0,0,0,.3); color: #fff;}
+            .arrow:hover { background-color: RGBA(0,0,0,.7);}
+            #right2:hover .arrow { display: block;}
+            #prev { left: 20px;}
+            #next { right: 20px;}
+          .right3{width: 578px;
+                 height: 190px;
+                   border:1px solid #ccc;
+                   margin-top: 20px;
+                  } 
+          .right4{width: 578px;
+                 height: 190px;
+                   /*border:1px solid #ccc;*/
+                  } 
+           #footer{width: 100%; height: 60px;clear: both;}
+           .one{float: left;}
+           .two{float: right;}
+           .right3 a p,.right4 a p{background: white;}
+           /*.title{width: 578px;*/
+                  /*height: 160px;}*/
+           .img{width: 578px;
+                height: 300px;}
+           
+    #footer p{color:rgba(0, 0, 0, 0.54);
+              font-size: 10px;
+              text-align: center;
+              line-height: 20px;
+              margin-top:0px; 
+              } 
+    .size{font-family: "楷体"; color: blue;}
+    form p{font-family: "楷体"; font-size: 15px;}
+    .type{height: 30px;
+          background: #D8E8E2;
+          line-height: 30px;
+            font-size: 12px;
+            }
+    #clock{color: blue;
+           font-size: 20px;}
